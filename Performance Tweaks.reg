@@ -11,12 +11,41 @@
 ;            |  $$$$$$/                                            |  $$$$$$/                                                   
 ;             \______/                                              \______/                                                    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;   Description:    Some Registry Tweaks to inprove Windows performance.
+;   Description:    Some Registry Tweaks to improve Windows performance.
 ;
 ;   Last Updated:   14.10.2023
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Windows Registry Editor Version 5.00
 
+; Disable Autoplay.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers]
+"DisableAutoplay"=dword:00000001
 
+; Disable File History.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory]
+"Disabled"=dword:00000001
+
+; Enable Win32 Long Paths.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"LongPathsEnabled"=dword:00000001
+
+; Add Primary NVME Idle Timeout options.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\0012ee47-9041-4b5d-9b77-535fba8b1442\d639518a-e56d-4345-8af2-b9f32fb26109]
+"Attributes"=dword:00000000
+
+; Enable Game Mode.
+[HKEY_CURRENT_USER\Software\Microsoft\GameBar]
+"AllowAutoGameMode"=dword:00000001
+"AutoGameModeEnabled"=dword:00000001
+
+; Enable Hardware Accelerated GPU Scheduling.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers]
+"HwSchMode"=dword:00000002
+
+; Disable Windowed Game Optimizations.
+[HKEY_CURRENT_USER\Software\Microsoft\DirectX\GraphicsSettings]
+"SwapEffectUpgradeCache"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\DirectX\UserGpuPreferences]
+"DirectXUserGlobalSettings"="SwapEffectUpgradeEnable=0;"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

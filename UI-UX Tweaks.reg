@@ -11,12 +11,98 @@
 ;            |  $$$$$$/                                            |  $$$$$$/                                                   
 ;             \______/                                              \______/                                                    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;   Description:    Some Registry Tweaks to inprove Windows UI-UX.
+;   Description:    Some Registry Tweaks to improve Windows UI-UX.
 ;
 ;   Last Updated:   14.10.2023
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Windows Registry Editor Version 5.00
 
+; Disable the Windows Lock Screen.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"DisableLockWorkstation"=dword:00000001
+
+; Disable Search Highlights.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SearchSettings]
+"IsDynamicSearchBoxEnabled"=dword:00000000
+
+; Disable Bing Search From Windows-11 Start Menu.
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"=dword:00000001
+
+; Remove Bing Discover from Microsoft-EDGE.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"HubsSidebarEnabled"=dword:00000000
+
+; Clear Recent Colors History
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors]
+
+; Disable Screen Savers.
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Control Panel\Desktop]
+"ScreenSaveActive"="0"
+
+; Remove "Look for an App in Microsoft Store".
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
+"NoUseStoreOpenWith"=-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"NoUseStoreOpenWith"=dword:00000001
+
+; Add "Open with Notepad" in context menu.
+[HKEY_CLASSES_ROOT\*\shell\Open With Notepad]
+[HKEY_CLASSES_ROOT\*\shell\Open With Notepad\command]
+@="notepad.exe %1"
+
+; Add "Restart Explorer" to context menu.
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer]
+"icon"="explorer.exe"
+"Position"="Bottom"
+"SubCommands"=""
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\01menu]
+"MUIVerb"="Restart Explorer Now"
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\01menu\command]
+@=hex(2):63,00,6d,00,64,00,2e,00,65,00,78,00,65,00,20,00,2f,00,63,00,20,00,74,\
+  00,61,00,73,00,6b,00,6b,00,69,00,6c,00,6c,00,20,00,2f,00,66,00,20,00,2f,00,\
+  69,00,6d,00,20,00,65,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,\
+  00,78,00,65,00,20,00,20,00,26,00,20,00,73,00,74,00,61,00,72,00,74,00,20,00,\
+  65,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,78,00,65,00,00,\
+  00
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\02menu]
+"MUIVerb"="Restart Explorer with Pause"
+"CommandFlags"=dword:00000020
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\02menu\command]
+@=hex(2):63,00,6d,00,64,00,2e,00,65,00,78,00,65,00,20,00,2f,00,63,00,20,00,40,\
+  00,65,00,63,00,68,00,6f,00,20,00,6f,00,66,00,66,00,20,00,26,00,20,00,65,00,\
+  63,00,68,00,6f,00,2e,00,20,00,26,00,20,00,65,00,63,00,68,00,6f,00,20,00,53,\
+  00,74,00,6f,00,70,00,70,00,69,00,6e,00,67,00,20,00,65,00,78,00,70,00,6c,00,\
+  6f,00,72,00,65,00,72,00,2e,00,65,00,78,00,65,00,20,00,70,00,72,00,6f,00,63,\
+  00,65,00,73,00,73,00,20,00,2e,00,20,00,2e,00,20,00,2e,00,20,00,26,00,20,00,\
+  65,00,63,00,68,00,6f,00,2e,00,20,00,26,00,20,00,74,00,61,00,73,00,6b,00,6b,\
+  00,69,00,6c,00,6c,00,20,00,2f,00,66,00,20,00,2f,00,69,00,6d,00,20,00,65,00,\
+  78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,78,00,65,00,20,00,26,\
+  00,20,00,65,00,63,00,68,00,6f,00,2e,00,20,00,26,00,20,00,65,00,63,00,68,00,\
+  6f,00,2e,00,20,00,26,00,20,00,65,00,63,00,68,00,6f,00,20,00,57,00,61,00,69,\
+  00,74,00,69,00,6e,00,67,00,20,00,74,00,6f,00,20,00,73,00,74,00,61,00,72,00,\
+  74,00,20,00,65,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,78,\
+  00,65,00,20,00,70,00,72,00,6f,00,63,00,65,00,73,00,73,00,20,00,77,00,68,00,\
+  65,00,6e,00,20,00,79,00,6f,00,75,00,20,00,61,00,72,00,65,00,20,00,72,00,65,\
+  00,61,00,64,00,79,00,20,00,2e,00,20,00,2e,00,20,00,2e,00,20,00,26,00,20,00,\
+  70,00,61,00,75,00,73,00,65,00,20,00,26,00,26,00,20,00,73,00,74,00,61,00,72,\
+  00,74,00,20,00,65,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,\
+  78,00,65,00,20,00,26,00,26,00,20,00,65,00,78,00,69,00,74,00,00,00
+
+; Display full details when deleting a file.
+[HKEY_CLASSES_ROOT\AllFilesystemObjects]
+"ConflictPrompt"="prop:System.ItemTypeText;System.Size;System.DateModified;System.DateCreated"
+"ExtendedTileInfo"="prop:System.ItemTypeText;System.Size;System.DateModified;System.OfflineAvailability"
+"FullDetails"="prop:System.PropGroup.FileSystem;System.ItemNameDisplay;System.ItemTypeText;System.ItemFolderPathDisplay;System.Size;System.DateCreated;System.DateModified;System.FileAttributes;*System.StorageProviderState;*System.OfflineAvailability;*System.OfflineStatus;*System.SharedWith;*System.FileOwner;*System.ComputerName"
+"InfoTip"="prop:System.ItemTypeText;System.Size;System.DateModified"
+"NoRecentDocs"=""
+"NoStaticDefaultVerb"=""
+"PreviewDetails"="prop:System.DateModified;System.Size;System.DateCreated;*System.StorageProviderState;*System.OfflineAvailability;*System.OfflineStatus;*System.SharedWith"
+"PreviewTitle"="prop:System.ItemNameDisplay;System.ItemTypeText"
+"QuickTip"="prop:System.ItemTypeText;System.Size;System.DateModified"
+"SetDefaultsFor"="prop:System.Author;System.Document.DateCreated"
+"TileInfo"="prop:System.ItemTypeText;System.Size;System.DateModified"
+"FileOperationPrompt"="prop:System.PropGroup.FileSystem;System.ItemNameDisplay;System.ItemTypeText;System.ItemFolderPathDisplay;System.Size;System.DateCreated;System.DateModified;System.FileAttributes;System.OfflineAvailability;System.OfflineStatus;System.SharedWith;System.FileOwner;System.ComputerName"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -11,12 +11,55 @@
 ;            |  $$$$$$/                                            |  $$$$$$/                                                   
 ;             \______/                                              \______/                                                    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;   Description:    Some Registry Tweaks to inprove Windows privacy.
+;   Description:    Some Registry Tweaks to improve Windows privacy.
 ;
 ;   Last Updated:   14.10.2023
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Windows Registry Editor Version 5.00
 
+; Disable App Launch Tracking.
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\EdgeUI]
+"DisableMFUTracking"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
+"DisableMFUTracking"=dword:00000001
+
+; Disable Auto-Adjust Active-Hours.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+"SmartActiveHoursState"=dword:00000002
+
+; Disable Autocorrect & Highlight misspelled words.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7]
+"EnableAutocorrection"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\TabletTip\1.7]
+"EnableSpellchecking"=dword:00000000
+
+; Disable Device Usage modes.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\business]
+"Intent"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\creative]
+"Intent"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\entertainment]
+"Intent"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\family]
+"Intent"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\gaming]
+"Intent"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CloudExperienceHost\Intent\schoolwork]
+"Intent"=dword:00000000
+
+; Disable "Find My Device".
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Settings\FindMyDevice]
+"LocationSyncEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FindMyDevice]
+"AllowFindMyDevice"=dword:00000000
+
+; Disable Shared Experiences.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"EnableCdp"=dword:00000000
+
+; Disable Steps Recorder.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"DisableUAR"=dword:00000001
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
