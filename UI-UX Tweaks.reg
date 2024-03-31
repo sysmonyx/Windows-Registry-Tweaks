@@ -13,7 +13,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;   Description:    Some Registry Tweaks to improve Windows UI-UX.
 ;
-;   Last Updated:   14.10.2023
+;   Last Updated:   31.03.2024
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Windows Registry Editor Version 5.00
 
@@ -114,9 +114,22 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoStartMenuMFUprogramsList"=dword:00000001
 
-; Turn of Windows Welcome Experience Page.
+; Turn off Windows Welcome Experience Page.
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
 "SubscribedContent-310093Enabled"=dword:00000000
 
+; Turn off Copilot introduced in Windows-11 23H2 update.
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsCopilot]
+"TurnOffWindowsCopilot"=dword:00000001
+
+; Disable Enhanced Pointer Precision for Mouse.
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+
+; Disable Enhanced Pointer Precision for Precision Touchpad.
+[HKCU\Software\Microsoft\Windows\CurrentVersion\PrecisionTouchPad]
+"HonorMouseAccelSetting"=dword:00000001
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
