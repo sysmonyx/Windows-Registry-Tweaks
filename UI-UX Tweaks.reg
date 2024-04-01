@@ -43,11 +43,13 @@ Windows Registry Editor Version 5.00
 ; Remove "Look for an App in Microsoft Store".
 [HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
 "NoUseStoreOpenWith"=-
+
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
 "NoUseStoreOpenWith"=dword:00000001
 
 ; Add "Open with Notepad" in context menu.
 [HKEY_CLASSES_ROOT\*\shell\Open With Notepad]
+
 [HKEY_CLASSES_ROOT\*\shell\Open With Notepad\command]
 @="notepad.exe %1"
 
@@ -56,8 +58,10 @@ Windows Registry Editor Version 5.00
 "icon"="explorer.exe"
 "Position"="Bottom"
 "SubCommands"=""
+
 [HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\01menu]
 "MUIVerb"="Restart Explorer Now"
+
 [HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\01menu\command]
 @=hex(2):63,00,6d,00,64,00,2e,00,65,00,78,00,65,00,20,00,2f,00,63,00,20,00,74,\
   00,61,00,73,00,6b,00,6b,00,69,00,6c,00,6c,00,20,00,2f,00,66,00,20,00,2f,00,\
@@ -65,9 +69,11 @@ Windows Registry Editor Version 5.00
   00,78,00,65,00,20,00,20,00,26,00,20,00,73,00,74,00,61,00,72,00,74,00,20,00,\
   65,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,78,00,65,00,00,\
   00
+
 [HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\02menu]
 "MUIVerb"="Restart Explorer with Pause"
 "CommandFlags"=dword:00000020
+
 [HKEY_CLASSES_ROOT\DesktopBackground\Shell\Restart Explorer\shell\02menu\command]
 @=hex(2):63,00,6d,00,64,00,2e,00,65,00,78,00,65,00,20,00,2f,00,63,00,20,00,40,\
   00,65,00,63,00,68,00,6f,00,20,00,6f,00,66,00,66,00,20,00,26,00,20,00,65,00,\
@@ -107,6 +113,7 @@ Windows Registry Editor Version 5.00
 ; Disable Screen Edge Swipe.
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
 "AllowEdgeSwipe"=-
+
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
 "AllowEdgeSwipe"=dword:00000000
 
