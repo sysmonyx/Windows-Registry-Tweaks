@@ -1,3 +1,5 @@
+Windows Registry Editor Version 5.00
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;    /$$$$$$                                                                                                                    
 ;   /$$__  $$                                                                                                                   
@@ -13,22 +15,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;   Description:    Some Registry Tweaks to improve Windows security & disable unnecessery security features.
 ;
-;   Last Updated:   14.10.2023
+;   Last Updated:   01.04.2024
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Windows Registry Editor Version 5.00
 
 ; Disable "Are you sure you want to run this file" prompt.
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Download]
 "CheckExeSignatures"="no"
 "RunInvalidSignatures"=dword:00000001
-
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Associations]
 "LowRiskFileTypes"=".zip;.rar;.nfo;.txt;.exe;.bat;.com;.cmd;.reg;.msi;.htm;.html;.gif;.bmp;.jpg;.avi;.mpg;.mpeg;.mov;.mp3;.m3u;.msu;.wav;"
 
 ; Disable downloaded files from being blocked.
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments]
 "SaveZoneInformation"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
 "SaveZoneInformation"=dword:00000001
 
@@ -53,13 +52,10 @@ Windows Registry Editor Version 5.00
 ; Turn off Windows Defender.
 ;[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
 ;"Windows Defender"=-
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run]
 ;"Windows Defender"=-
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
 ;"WindowsDefender"=-
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
 ;"DisableAntiSpyware"=dword:00000001
 
@@ -71,18 +67,14 @@ Windows Registry Editor Version 5.00
 ;"DisableSpecialRunningModes"=dword:00000001
 ;"DisableRoutinelyTakingAction"=dword:00000001
 ;"ServiceKeepAlive"=dword:00000000
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager]
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
 ;"DisableBehaviorMonitoring"=dword:00000001
 ;"DisableOnAccessProtection"=dword:00000001
 ;"DisableScanOnRealtimeEnable"=dword:00000001
 ;"DisableRealtimeMonitoring"=dword:00000001
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Signature Updates]
 ;"ForceUpdateFromMU"=dword:00000000
-
 ;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet]
 ;"DisableBlockAtFirstSeen"=dword:00000001
 
